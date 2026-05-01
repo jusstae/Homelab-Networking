@@ -60,11 +60,6 @@ This approach allows me to understanding networking without using pre-configurat
 - WiFi uplink may introduce instability
 - No dedicated firewall rules per network segment
 
---- 
-
-## Troubleshooting
-Example issue: No internet connectivity (VM)
-
 ---
 
 ## Lesson Learned
