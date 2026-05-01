@@ -1,24 +1,25 @@
-# Homelab Networking
+# Homelab Networking (Phase 2)
+
 
 ## Overview 
-This repo documents the networking design, configuration, and troubleshooting within my homelab environment.
-
-This goal is to simulate real-world network infrastructure by implementing routing, VLAN segmentation, and structured troubleshooting.
+This repository documents the networking design and implementation of my homelab environment. The goal is to build a scalable and secure network that evolves from a simple apartment-based setup into a segmented, enterprise-style infrastructure.
 
 --- 
 
-## Network Architecture
-Network diagram
+## Current Network Architecture (Phase 1)
+The current network is designed around limited physical infrastructure and relies on a Raspberry Pi 4 to act as a router.
 
---- 
+### Design 
+- ISP router provides internet via WiFi
+- Raspberry Pi 4 connects to ISP WiFi (WAN)
+- Raspberry Pi 4 provides Ethernet LAN to internal systems
+- Proxmox server connects directly to the Pi via Ethernet
+- All devices operate within a single flat network
 
-## Architecture Explanation 
-- The ISP modem provides WAN connectivity over WiFi
-- The Raspberry Pi 4 functions as a router, bridging WAN (WiFi) to LAN (Ethernet)
-- The Proxmox server connects via Ethernet and hosts virtual machines
-- A VLAN-aware Linux bridge (vmbr0) is used to segment network traffic
+### Diagram
+--- Add Diagrams ---- 
 
---- 
+---
 
 ## Why not Pfsense or OPNsense
 I choose Ubuntu Server as my router instead of Pfsense or OPNsense, one reason is because Raspberry Pi 4 uses arm based chip instead of an x86 chip, but the main reason is to gain a deeper understanding of networking fundamentals.
@@ -34,10 +35,45 @@ This approach allows me to understanding networking without using pre-configurat
 
 --- 
 
-## VLAN Configuration 
+## Current configuration
+### Raspberry Pi 4 (Router)
+- OS: Ubuntu Server
+- WAN Interface: WiFi (connected to ISP router)
+- LAN Interface: Ethernet
+- Functions:
+  - NAT (internet sharing)
+  - DHCP (Local IP assignment)
+  - Basic routing
 
+### Proxmox Server
+- Connected via Ethernet to Pi
+- Host virtual machines
+- Uses Pi as default gateway
 
+### VLAN configuration
+---- Adding VLAN configuration soon ---- 
 
+### Current Limitations
+- No VLAN segmentation (flat network)
+- No managed switch
+- Limited traffic isolation
+- WiFi uplink may introduce instability
+- No dedicated firewall rules per network segment
 
+--- 
 
+## Troubleshooting
+Example issue: No internet connectivity (VM)
 
+---
+
+## Lesson Learned
+- Proper gateway configuration is critical for connectivity
+- NAT routing enables internet access in isolated environments
+- Flat networks are simple but lack security and scalability
+- Structured troubleshooting improves efficiency
+
+---
+
+## Future Networking Plans (Phase 2)
+---- Currently working this ----
