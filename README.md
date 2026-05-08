@@ -9,14 +9,14 @@ This repository documents the networking design and implementation of my homelab
 ## Current Network Architecture (Phase 1)
 The current network is designed around limited physical infrastructure and relies on a Raspberry Pi 4 to act as a router.
 
-### Design 
+#### Design 
 - ISP router provides internet via WiFi
 - Raspberry Pi 4 connects to ISP WiFi (WAN)
 - Raspberry Pi 4 provides Ethernet LAN to internal systems
 - Proxmox server connects directly to the Pi via Ethernet
 - All devices operate within a single flat network
 
-### Diagram
+#### Diagram
 --- Add Diagrams ---- 
 
 ---
@@ -36,7 +36,7 @@ This approach allows me to understanding networking without using pre-configurat
 --- 
 
 ## Current configuration
-### Raspberry Pi 4 (Router)
+#### Raspberry Pi 4 (Router)
 - OS: Ubuntu Server
 - WAN Interface: WiFi (connected to ISP router)
 - LAN Interface: Ethernet
@@ -45,15 +45,15 @@ This approach allows me to understanding networking without using pre-configurat
   - DHCP (Local IP assignment)
   - Basic routing
 
-### Proxmox Server
+#### Proxmox Server
 - Connected via Ethernet to Pi
 - Host virtual machines
 - Uses Pi as default gateway
 
-### VLAN configuration
+#### VLAN configuration
 ---- Adding VLAN configuration soon ---- 
 
-### Current Limitations
+#### Current Limitations
 - No VLAN segmentation (flat network)
 - No managed switch
 - Limited traffic isolation
