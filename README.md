@@ -1,4 +1,4 @@
-# Homelab Networking (Phase 2)
+# Homelab Networking
 
 
 ## Overview 
